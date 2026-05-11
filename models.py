@@ -6,4 +6,4 @@ class ProductValidate(BaseModel):
     description: str
     price: float
     quantity: int
-    image_url: str   # ✅ just store path or URL
+    image_url: str = ""

@@ -1,11 +1,12 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from motor.motor_asyncio import AsyncIOMotorClient
+from dotenv import load_dotenv
+import os
 
-# MySQL connection URL
-DATABASE_URL = "mysql+pymysql://root:OmkarHatti@127.0.0.1/fastapi"
+load_dotenv()
 
-# Create engine
-engine = create_engine(DATABASE_URL)
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("DB_NAME")
 
-# Create session
-SessionLocal = sessionmaker(bind=engine)
+client = AsyncIOMotorClient(MONGO_URI)
+
+database = client[DB_NAME]
