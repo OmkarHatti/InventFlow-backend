@@ -19,7 +19,7 @@ app.add_middleware(
 if not os.path.exists("images"):
     os.makedirs("images")
 
-app.mount("/images", StaticFiles(directory="images"), name="images")
+# app.mount("/images", StaticFiles(directory="images"), name="images")
 
 
 @app.get("/")
